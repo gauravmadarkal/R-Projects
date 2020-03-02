@@ -1,0 +1,5 @@
+library(ggplot2)
+library(dplyr)
+category_ContentRating = summarise(group_by(data,data$Category,data$Content.Rating),count=n())
+p = ggplot(category_ContentRating,aes(x=category_ContentRating$`data$Category`,fill=category_ContentRating$`data$Content.Rating`))+geom_bar()+theme_classic()
+p=p+coord_flip()

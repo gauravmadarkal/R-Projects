@@ -1,0 +1,5 @@
+library(plyr)
+data=read.csv("googleplaystore.csv")
+count_content_rating <- count(data,vars = "Content.Rating")
+barplot(count_content_rating$freq,names.arg = count_content_rating$Content.Rating,main = "content_rating vs freq", ylim = c(1,2000),xlab="content_rating",ylab="frequency",col = "blue" ,las=3,cex.names=0.5,yaxt="n")
+axis(2,las = 1,cex.axis=0.5)
